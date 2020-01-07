@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header></header>
+    <main class="container">
+        <section class="players-left">
+            <article class="vistory-announcement">
+                <span class="winner unvisible">WINNER!</span>
+            </article>
+        </section>
+        <section class="board">
+            <section class="row">
+                <article class="cell r-a c-1 dl"></article>
+                <article class="cell r-a c-2"></article>
+                <article class="cell side-cell r-a c-3 dr"></article>
+            </section>
+            <section class="row">
+                <article class="cell r-b c-1"></article>
+                <article class="cell r-b c-2 dl dr"></article>
+                <article class="cell side-cell r-b c-3"></article>
+            </section>
+            <section class="row">
+                <article class="cell bottom-cell r-c c-1 dr"></article>
+                <article class="cell bottom-cell r-c c-2"></article>
+                <article class="cell side-cell bottom-cell r-c c-3 dl"></article>           
+            </section>
+        </section>
+        <section class="players-right">
+            <article class="vistory-announcement">
+                <span class="winner unvisible">WINNER!</span>
+            </article>
+        </section>
+        <section class="operators">
+            <button class="reset unvisible">New Game</button>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

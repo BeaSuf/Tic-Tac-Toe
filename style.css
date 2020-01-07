@@ -1,0 +1,31 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.unvisible {
+    display: none;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.bottom-cell {
+    border-bottom: 1px solid black;
+}
+
+.side-cell {
+    border-right: 1px solid black;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+
