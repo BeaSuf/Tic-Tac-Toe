@@ -8,39 +8,67 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header></header>
-    <main class="container">
-        <section class="players-left">
+    <div class="container">
+        <header>
+            <div class="logo">
+
+            </div>
+            <h1>TIC TAC TOE</h1>
+            <!-- <h1>TIC TAC TOE - UNDER WATER WORLD</h1> -->
+            <nav></nav>
+        </header>
+        <aside class="players-left">
             <article class="vistory-announcement">
                 <span class="winner unvisible">WINNER!</span>
             </article>
-        </section>
-        <section class="board">
-            <section class="row">
-                <article class="cell r-a c-1 dl"></article>
-                <article class="cell r-a c-2"></article>
-                <article class="cell side-cell r-a c-3 dr"></article>
+            <article class="player-area">
+                <div class="avatar"></div>
+            </article>
+            <article class="score-area">
+                <span class="score"></span>
+                <span class="token"></span>
+            </article>
+        </aside>
+        <main class="game-area">
+            <section class="board">
+                <section class="row">
+                    <article class="cell r-a c-1 dl"></article>
+                    <article class="cell r-a c-2"></article>
+                    <article class="cell side-cell r-a c-3 dr"></article>
+                </section>
+                <section class="row">
+                    <article class="cell r-b c-1"></article>
+                    <article class="cell r-b c-2 dl dr"></article>
+                    <article class="cell side-cell r-b c-3"></article>
+                </section>
+                <section class="row">
+                    <article class="cell bottom-cell r-c c-1 dr"></article>
+                    <article class="cell bottom-cell r-c c-2"></article>
+                    <article class="cell side-cell bottom-cell r-c c-3 dl"></article>           
+                </section>
             </section>
-            <section class="row">
-                <article class="cell r-b c-1"></article>
-                <article class="cell r-b c-2 dl dr"></article>
-                <article class="cell side-cell r-b c-3"></article>
+            <section class="operators">
+                <label class="btn">
+                    <input type="checkbox"> Multy Game
+                </label>
+                <button class="reset unvisible">New Game</button>
             </section>
-            <section class="row">
-                <article class="cell bottom-cell r-c c-1 dr"></article>
-                <article class="cell bottom-cell r-c c-2"></article>
-                <article class="cell side-cell bottom-cell r-c c-3 dl"></article>           
-            </section>
-        </section>
-        <section class="players-right">
+        </main>
+        <aside class="players-right">
             <article class="vistory-announcement">
                 <span class="winner unvisible">WINNER!</span>
             </article>
-        </section>
-        <section class="operators">
-            <button class="reset unvisible">New Game</button>
-        </section>
-    </main>
+            <article class="player-area">
+                <div class="avatar"></div>
+            </article>
+            <article class="score-area">
+                <span class="token"></span>
+                <span class="score"></span>
+            </article>
+        </aside>
+        <footer>
+        </footer>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
