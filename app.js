@@ -12,25 +12,43 @@ let dioganalRight = document.querySelectorAll('.dr');
 let playerLeftWinnerSpan = document.querySelector('.players-left .winner');
 let playerRightWinnerSpan = document.querySelector('.players-right .winner');
 
+let newGameButton = document.querySelector('.btn-new-game');
+let settings = document.querySelector('.settings');
+let multyTurnLb = document.querySelector('.multy-turn-lb'); 
+let multyTurnCkb = document.querySelector('.multy-turn-ckb'); 
+let turnsInput = document.querySelector('.turns-input'); 
+let boardArea = document.querySelector('.board'); 
+let draw = document.querySelector('.draw'); 
+
+
+
 let resetButton = document.querySelector('.reset');
 
 const board = {
     rows: [rowA, rowB, rowC],
     columns: [col1, col2, col3],
     diagonals: [dioganalLeft, dioganalRight],
-    size: 3
+    size: 3,
+    clicks: 0
 }
 
 const playerX = {
     color: 'red',
     token: 'selected-X',
-    area: ''
+    area: '',
+    turn: false
 }
 
 const playerO = {
     color: 'blue',
     token: 'selected-O',
-    area: ''
+    area: '',
+    turn: false
+}
+
+const game = {
+    turns: 1,
+    draw: true //default - no winner
 }
 
 let random = Math.round(Math.random());
@@ -56,13 +74,21 @@ const setKnotsAndCrosses = (player, area) => {
 }
 
 const singleGameOver = (player) => {
-    //Anounce the winner
-    if(player.winner) {
+   
+    if(player !== null && player.winner) {
+        //Anounce the winner
         player.area.classList.toggle('unvisible'); 
+    } else {
+        // player === null, it's a draw
+        //announce a draw
+        draw.classList.toggle('unvisible')
+        // TODO maybe some animation
+
     }
+
     //Show reset button
     resetButton.classList.toggle('unvisible'); 
-    
+
     //Players can't click anymore
     cells.forEach(cell => {
         cell.removeEventListener('click', handleCellClick);
@@ -79,7 +105,7 @@ const checkWinner = (player, set) => {
 
     if(countToken === board.size) {
         player.winner = true;
-        singleGameOver(player);
+        game.draw = false;
     }
 }
 
@@ -101,17 +127,25 @@ const checkBoard = (player) => {
             checkWinner(player, diagonal);
         }
     });
+    
+    if(!game.draw) {
+        singleGameOver(player);
+    } else if(board.clicks === (Math.pow(board.size, 2))) {
+        //board full - it's a draw
+        singleGameOver(null);
+    }
 }
 
 const handleCellClick = event => {
     event.target.style.backgroundColor = currentPlayer.color;
     event.target.classList.add(currentPlayer.token);
-    
+    board.clicks++;
+
     checkBoard(currentPlayer);
 
     if(!currentPlayer.winner) {
         togglePlayers();
-    }        
+    }
 }
 
 cells.forEach(cell => {
@@ -119,10 +153,35 @@ cells.forEach(cell => {
 });
 
 const handleClearBoard = () => {
+    cells.forEach(cell => {
+        cell.style.backgroundColor = "";
+    })
 
+    //TODO Flip a coin
 }
 
+
+
+const handleMultyTurnChk = () => {
+    turnsInput.classList.toggle('unvisible');
+}
+
+const handleNewGameButtonClick = () => {
+    // Set preferences and start game buttons to unvisible
+    settings.classList.toggle('unvisible');
+    newGameButton.classList.toggle('unvisible');
+    
+    // Set board to visible
+    boardArea.classList.toggle('unvisible');
+    
+    // set game set turns
+    game.turns = turnsInput.value !== "" ? turnsInput.value : 1;    
+}
+
+multyTurnCkb.addEventListener('click', handleMultyTurnChk);
+newGameButton.addEventListener('click', handleNewGameButtonClick);
 resetButton.addEventListener('click', handleClearBoard);
+
 
 initializeGame();
 

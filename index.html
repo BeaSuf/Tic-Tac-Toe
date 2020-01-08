@@ -30,7 +30,24 @@
             </article>
         </aside>
         <main class="game-area">
-            <section class="board">
+            <section class="settings">
+                <h3>Set your preferences and start the game</h3>
+                <label class="multy-turn-lb">Multy Turns Game
+                    <input class="multy-turn-ckb" type="checkbox" >
+                </label>
+                <input class="turns-input unvisible" type="number" min="1" max="5" placeholder="ENTER NUMBER OF TURNS (1 -5)"> 
+                <button class="reset unvisible">New Game</button>
+            </section>
+            <!-- <section class="new-game unvisible"> -->
+                <button class="btn-new-game">START NEW GAME</button>
+            <!-- </section> -->
+            <section class="coin-flip unvisible">
+                <span class="coin">coin</span>
+            </section>
+            <section class="board unvisible">
+                <section class="draw unvisible">
+                    <span>IT'S A DRAW</span>
+                </section>
                 <section class="row">
                     <article class="cell r-a c-1 dl"></article>
                     <article class="cell r-a c-2"></article>
@@ -46,12 +63,6 @@
                     <article class="cell bottom-cell r-c c-2"></article>
                     <article class="cell side-cell bottom-cell r-c c-3 dl"></article>           
                 </section>
-            </section>
-            <section class="operators">
-                <label class="btn">
-                    <input type="checkbox"> Multy Game
-                </label>
-                <button class="reset unvisible">New Game</button>
             </section>
         </main>
         <aside class="players-right">

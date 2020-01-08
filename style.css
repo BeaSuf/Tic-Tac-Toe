@@ -28,6 +28,8 @@ header {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+
+    background: linear-gradient(to bottom, #fdfdfd, #828282);
     
     /* todo: remove from final */
     border: 1px solid black;
@@ -50,6 +52,7 @@ main {
     /* todo: remove from final */
     border: 1px solid black;
 }
+
 .operators {
     margin: 15px;
     /* todo: remove from final */
@@ -64,6 +67,7 @@ main {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    background: linear-gradient(to bottom, #fdfdfd, #828282);
 
     /* todo: remove from final */
     border: 1px solid black;
@@ -84,15 +88,36 @@ main {
     border: 1px solid black;
 }
 
-
 footer {
     grid-area: footer;
     /* todo: remove from final */
     border: 1px solid black;
 }
 
-.unvisible {
-    display: none;
+.btn-new-game {
+    border: none;
+    border-radius: 15%;
+    /* margin: 50% auto;  */
+}
+
+.settings {
+    margin: 15% auto; 
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly;
+    align-items: center; */
+}
+
+.multy-turn-lb {
+    display: block;
+}
+
+.multy-turn-ckb {
+    float: left;
+}
+
+.turns-input {
+
 }
 
 .row {
@@ -128,7 +153,6 @@ footer {
     border-right: 1px solid black;
 }
 
-
 @media (max-width: 768px) {
     .container {
         grid-template-areas:
@@ -151,3 +175,7 @@ footer {
         margin: 0;
     }
   }
+
+  .unvisible {
+    display: none;
+}
