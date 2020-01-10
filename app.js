@@ -121,11 +121,6 @@ const initializeGame = () => {
         drawSpan.classList.toggle('unvisible');
     }
 
-    // if(settings.classList.contains('unvisible')){
-    //     playerLeftSection.classList.toggle('unvisible');
-    //     playerRightSection.classList.toggle('unvisible');
-    // }
-
     coinFlipImg.src = 'images/flip.png';
     coinFlipImg.classList.remove('vivify', 'fadeOut', 'duration-1500');
     board.clicks = 0;
@@ -151,7 +146,6 @@ const handleCoinFlip = () => {
         
         currentPlayer.section.classList.toggle('active'); //active background
 
-        // coinFlipImg.classList.toggle('unvisible');
         setSettingsButton.classList.add('unvisible');
      }, 800);
 }
@@ -189,8 +183,6 @@ const handleReverseTokenClick = () => {
     playerLeftTokenSettings.classList.remove(leftTokenClass);
     playerRightTokenSettings.classList.add(tempTokenClass);
     playerRightTokenSettings.classList.remove(rightTokenClass);
-
-
 }
 
 const setPlayersArea = () => {
@@ -201,7 +193,6 @@ const setPlayersArea = () => {
         playerX.section = playerLeftSection;
         playerLeftNameSpan.textContent = playerLeftNameSettings.value;
         playerLeftAvatarSpan.textContent = playerLeftAvatarSettings.value;
-        // playerLeftScoreSpan.textContent = playerX.score; 
         
         playerO.name = playerRightNameSettings.value;
         playerO.winArea = playerRightWinnerSpan;
@@ -209,7 +200,6 @@ const setPlayersArea = () => {
         playerO.section = playerRightSection;
         playerRightNameSpan.textContent = playerRightNameSettings.value;
         playerRightAvatarSpan.textContent = playerRightAvatarSettings.value;        
-        // playerRightScoreSpan.textContent = playerO.score;
     } else if(playerLeftTokenSettings.className === "knot") {
         playerO.name = playerLeftNameSettings.value;
         playerO.winArea = playerLeftWinnerSpan;
@@ -217,7 +207,6 @@ const setPlayersArea = () => {
         playerO.section = playerLeftSection;
         playerLeftNameSpan.textContent = playerLeftNameSettings.value;
         playerLeftAvatarSpan.textContent = playerLeftAvatarSettings.value;
-        // playerLeftScoreSpan.textContent = playerX.score; 
         
         playerX.name = playerRightNameSettings.value;
         playerX.winArea = playerRightWinnerSpan;
@@ -225,11 +214,6 @@ const setPlayersArea = () => {
         playerX.section = playerRightSection;
         playerRightNameSpan.textContent = playerRightNameSettings.value;
         playerRightAvatarSpan.textContent = playerRightAvatarSettings.value;
-        // playerRightScoreSpan.textContent = playerO.score;
-
-        // let tempScore = playerX.score;
-        // playerX.score = playerO.score;
-        // playerO.score = tempScore;
     }
 
     playerLeftTokenImg.src = playerLeftTokenSettings.src;
@@ -253,7 +237,6 @@ const singleGameOver = (player) => {
         drawSpan.classList.toggle('unvisible')
         playerO.section.classList.remove('active');
         playerX.section.classList.remove('active');
-        // TODO some animation
     }
 
     game.over = true;
@@ -377,12 +360,10 @@ const handleSetSettingsBtn = () => {
     boardArea.classList.toggle('unvisible');
     playersSettingsNotSet = false;
 
-    // playerLeftSection.classList.toggle('unvisible');
-    // playerRightSection.classList.toggle('unvisible');
-
     if(!coinFlipImg.classList.contains('unvisible')) {
         coinFlipImg.classList.add('unvisible');
     }
+    
     playerLeftSection.classList.remove('active');
     playerRightSection.classList.remove('active');
     playerLeftWinnerSpan.classList.add('unvisible');
