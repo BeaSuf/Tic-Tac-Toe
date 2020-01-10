@@ -1,3 +1,18 @@
+@font-face {
+    font-family: OhWhale;
+    src: url(oh-whale-font/OhWhale-oYZq.ttf);
+}
+
+body {
+    background-image: url('images/alessandra-caretto-MsP7evMP-2w-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #795523;
+    font-family: OhWhale;
+    font-weight: bold;
+    height: 100vh;
+}
+
 .container {
     display: grid;
 
@@ -6,7 +21,7 @@
       "l-side content r-side"
       "footer footer footer";
   
-    grid-template-columns: 200px 1fr 200px;
+    grid-template-columns: 25% 1fr 25%;
     grid-template-rows: auto 1fr auto;
     grid-gap: 10px;  
 }
@@ -20,6 +35,12 @@ header {
     border: 1px solid black;
 }
 
+.active {
+    /* background: linear-gradient(to bottom, #fdfdfd, #828282); */
+    background-image: url('images/kisspng-adobe-illustrator-download-floating-starfish-5a74b192b92331.9764207515175970747583.png');
+    background-size: cover;
+}
+
 .players-left {
     grid-area: l-side;
     margin-left: 0.5rem;
@@ -28,11 +49,12 @@ header {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-
-    background: linear-gradient(to bottom, #fdfdfd, #828282);
     
     /* todo: remove from final */
     border: 1px solid black;
+
+    /* background-size: 550px 514px;
+    background-position: -35px -40px; */
 }
 
 main {
@@ -50,13 +72,17 @@ main {
 .board {
     margin: 15px;
     /* todo: remove from final */
-    border: 1px solid black;
+    /* border: 1px solid black; */
+}
+
+.board .draw {
+    margin: 0 auto;
 }
 
 .operators {
     margin: 15px;
     /* todo: remove from final */
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .players-right {
@@ -67,7 +93,6 @@ main {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background: linear-gradient(to bottom, #fdfdfd, #828282);
 
     /* todo: remove from final */
     border: 1px solid black;
@@ -75,17 +100,17 @@ main {
 
 .vistory-announcement {
     /* todo: remove from final */
-    border: 1px solid black;    
+    /* border: 1px solid black;     */
 }
 
 .player-area {
     /* todo: remove from final */
-    border: 1px solid black;    
+    /* border: 1px solid black;     */
 }
 
 .score-area {
     /* todo: remove from final */
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 footer {
@@ -94,19 +119,34 @@ footer {
     border: 1px solid black;
 }
 
-.btn-new-game {
+.btn-new-game, .show-settings{
     border: none;
     border-radius: 15%;
-    /* margin: 50% auto;  */
+    font-family: OhWhale;
+    font-weight: bold;
+    font-size: x-large;
+    color: #795523;
+    background-color: #00000000;
+}
+
+
+.players-settings {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .settings {
-    margin: 15% auto; 
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-evenly;
-    align-items: center; */
+    width: 95%;
 }
+.player-left-settings, .player-right-settings {
+    width: 40%;
+}
+
+.player-left-settings .player-name, .player-right-settings .player-name{
+    width: 100%;
+}
+
 
 .multy-turn-lb {
     display: block;
@@ -120,6 +160,33 @@ footer {
 
 }
 
+.players-token-settings {
+    /* margin: 0 auto; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.reverse img{
+    width: 50px;
+}
+
+.players-left .token {
+    width: 50px;
+}
+
+.players-right .token {
+    width: 50px;
+}
+
+.players-left, .players-right {
+    font-size: xx-large;
+}
+
+.coin-flip {
+    margin: 10px;
+}
+  
 .row {
     display: flex;
     justify-content: center;
@@ -153,6 +220,10 @@ footer {
     border-right: 1px solid black;
 }
 
+.unvisible {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .container {
         grid-template-areas:
@@ -173,9 +244,30 @@ footer {
   
     .players-left, .players-right {
         margin: 0;
+        display: flex;
+        flex-direction: row;
+        font-size: x-large;
+        justify-content: center;
     }
-  }
 
-  .unvisible {
-    display: none;
+    /* .vistory-announcement {
+        order: -1;
+    } */
+
+    .token-area {
+        order: 0;
+    }
+    .score-area{
+        order: 2;
+    }
+
+    .player-area {
+        order: -1;
+    }
+
+    .active {
+        /* background: linear-gradient(to bottom, #fdfdfd, #828282); */
+        background-image: url('images/active-small.png');
+        background-size: contain;
+    }
 }
